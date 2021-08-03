@@ -5,8 +5,22 @@ const config = {
     // Webpack start from this entry point
     entry: {
         myApp: [
+            "./src/style.css",
             "./src/main.js",
         ],
+    },
+    module: {
+        rules: [
+            {
+                // Match file extension
+                test: /\.css$/,
+                // Order of loader from bottom to up
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ],
+            }
+        ]
     },
     // This is the output of Webpack
     output: {

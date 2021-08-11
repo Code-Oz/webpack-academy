@@ -1,4 +1,15 @@
 const path = require("path")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const env = process.env.NODE_ENV
+const cssLoaders = env === "prod" ?
+    [
+        MiniCssExtractPlugin.loader,
+        'css-loader'
+    ] : [
+        'style-loader',
+        'css-loader'
+    ]
 
 const config = {
     mode: "development",
@@ -15,10 +26,7 @@ const config = {
                 // Match file extension
                 test: /\.css$/,
                 // Order of loader from bottom to up
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ],
+                use: cssLoaders,
             }
         ]
     },
@@ -28,6 +36,13 @@ const config = {
         path: path.resolve(__dirname, "dist/"),
         filename: "bundle.js"
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            // Name output by extract
+            filename: "style.css",
+        }),
+        new CleanWebpackPlugin(),
+    ],
 }
 
 module.exports = config

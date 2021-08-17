@@ -1,6 +1,8 @@
 const path = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 const env = process.env.NODE_ENV
 const cssLoaders = env === "prod" ?
     [
@@ -42,6 +44,15 @@ const config = {
             filename: "style.css",
         }),
         new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'Webpack academy title',
+            template: './src/index.html',
+            inject: 'body',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: false
+            }
+        }),
     ],
 }
 

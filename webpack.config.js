@@ -38,11 +38,14 @@ const config = {
     output: {
         // From current folder + dist folder that will contains all bundle
         path: path.resolve(__dirname, "dist/"),
-        filename: "bundle.js"
+        filename: "[contenthash:8].js"
     },
     // External lib that will not be put in bundle but use from CDN
     externals: {
         lodash: '_',
+    },
+    optimization: {
+        minimize: true,
     },
     plugins: [
         new MiniCssExtractPlugin({

@@ -7,5 +7,9 @@
         <h1 class="toto">My First Heading</h1>
 
         <p>My first paragraph.</p>
+
+        <% for(var js of htmlWebpackPlugin.options.cdn.js) { %>
+            <script type="text/javascript" src="<%=js%>"></script>
+        <% } %>
     </body>
 </html>

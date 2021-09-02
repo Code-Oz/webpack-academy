@@ -4,7 +4,10 @@
   "description": "",
   "main": "bundle.js",
   "scripts": {
-    "build": "cross-env --env.NODE_ENV=prod webpack --config webpack.config.js"
+    "dev": "cross-env --env.NODE_ENV=dev webpack serve --hot --config webpack.config.dev.js",
+    "analyzeDev": "cross-env --env.NODE_ENV=dev --env.ANALYSE=true webpack serve --hot --config webpack.dev.js",
+    "build": "cross-env --env.NODE_ENV=prod webpack --config webpack.config.prod.js",
+    "analyzeProd": "cross-env --env.NODE_ENV=prod --env.ANALYSE=true webpack --config webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +23,8 @@
     "mini-css-extract-plugin": "^2.2.0",
     "style-loader": "^3.2.1",
     "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.2"
   }
 }

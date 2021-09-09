@@ -1,3 +1,4 @@
+const path = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -21,6 +22,13 @@ const config = {
     // External lib that will not be put in bundle but use from CDN
     externals: {
         lodash: '_',
+    },
+    // The resolve object allows you to configure how webpack’s module resolution works
+    resolve: {
+        // Just alias
+        alias: {
+            '@': path.resolve(__dirname, "./src/"),
+        }
     },
     plugins: [
         new CleanWebpackPlugin(),

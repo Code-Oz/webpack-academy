@@ -1,6 +1,7 @@
 const path = require("path")
 const commonConfig = require("./webpack.config.common")
 const merge = require('webpack-merge')
+const DotenvPlugin = require('webpack-dotenv-plugin')
 
 const config = {
     mode: "development",
@@ -20,7 +21,7 @@ const config = {
     output: {
         // From current folder + dist folder that will contains all bundle
         path: path.resolve(__dirname, "dist/"),
-        filename: "bundle.dev.js"
+        filename: "[name].dev.js"
     },
     module: {
         rules: [
@@ -35,9 +36,14 @@ const config = {
                 ],
             }
         ]
-    }
+    },
+    plugins: [
+        new DotenvPlugin({
+            sample: './.env',
+            path: './.env'
+        })
+    ],
 }
-
 
 // Merge commonConfig with prod config, priority to prod config
 module.exports = merge(commonConfig, {

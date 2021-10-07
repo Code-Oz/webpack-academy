@@ -29,6 +29,7 @@ const config = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             '@': path.resolve(__dirname, "./src/"),
+            'style': path.resolve(__dirname, "./src/style/"),
         }
     },
     module: {

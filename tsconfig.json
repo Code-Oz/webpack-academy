@@ -5,7 +5,8 @@
         "target": "ES2018",
         "module": "commonjs",
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "style/*": ["./src/style/*"],
         },
         "declaration": true,
         "sourceMap": true,

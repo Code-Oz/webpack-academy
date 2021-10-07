@@ -5,8 +5,9 @@
 </template>
 
 <script lang="ts" src="./App.ts"></script>
-<style scoped>
-    .toto {
-        color: blue;
+<style lang="scss" scoped>
+    @import "~style/import.scss";
+    div {
+        background: $grey;
     }
 </style>

@@ -9,11 +9,12 @@ const config = {
         rules: [
             {
                 // Match file extension
-                test: /\.css$/,
+                test: /\.(sa|sc|c)ss$/,
                 // Order of loader from bottom to up
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    'css-loader',
+                    'sass-loader'
                 ],
             }
         ]

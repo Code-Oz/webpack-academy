@@ -27,12 +27,13 @@ const config = {
         rules: [
             {
                 // Match file extension
-                test: /\.css$/,
+                test: /\.(sa|sc|c)ss$/,
                 // Use multiple loader
                 // Order => from bottom to top
                 use: [
                     'vue-style-loader',
-                    'css-loader'
+                    'css-loader',
+                    'sass-loader'
                 ],
             }
         ]

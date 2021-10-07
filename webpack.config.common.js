@@ -21,11 +21,13 @@ const config = {
     // External lib that will not be put in bundle but use from CDN
     externals: {
         lodash: '_',
+        vue: 'Vue',
     },
     // The resolve object allows you to configure how webpack’s module resolution works
     resolve: {
         // Just alias
         alias: {
+            'vue$': 'vue/dist/vue.esm.js',
             '@': path.resolve(__dirname, "./src/"),
         }
     },
@@ -34,6 +36,13 @@ const config = {
             test: /\.tsx?$/,
             loader: "ts-loader",
             exclude: /node_modules/,
+            options: {
+                // Tell to ts-loader: if you check .vue file extension, handle it like a ts file
+                appendTsSuffixTo: [/\.vue$/]
+            }
+        }, {
+            test: /\.vue$/,
+            loader: "vue-loader",
         }]
     },
     plugins: [

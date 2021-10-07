@@ -31,7 +31,7 @@ const config = {
                 // Use multiple loader
                 // Order => from bottom to top
                 use: [
-                    'style-loader',
+                    'vue-style-loader',
                     'css-loader'
                 ],
             }

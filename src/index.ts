@@ -1,3 +1,9 @@
-const message = 'hello from ts file'
+import Vue from "vue"
+import App from "./app/App.vue"
 
-console.log(`${message}`)
+Vue.config.productionTip = false
+
+export const app = new Vue({
+    el: "#app",
+    render: h => h(App),
+})

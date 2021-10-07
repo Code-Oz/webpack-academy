@@ -4,12 +4,7 @@
         <title> <%= htmlWebpackPlugin.options.title %> </title>
     </head>
     <body>
-        <h1 class="toto">My First Heading</h1>
-
-        <p>My first paragraph.</p>
-
-        <button id="button" type="button">Click Me!</button>
-
+        <div id="app"></div>
         <% for(var js of htmlWebpackPlugin.options.cdn.js) { %>
             <script type="text/javascript" src="<%=js%>"></script>
         <% } %>

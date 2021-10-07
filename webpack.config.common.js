@@ -15,8 +15,7 @@ const config = {
     // Webpack start from this entry point
     entry: {
         myApp: [
-            "./src/style.css",
-            "./src/main.js",
+            "./src/index.ts",
         ],
     },
     // External lib that will not be put in bundle but use from CDN
@@ -29,6 +28,13 @@ const config = {
         alias: {
             '@': path.resolve(__dirname, "./src/"),
         }
+    },
+    module: {
+        rules: [{
+            test: /\.tsx?$/,
+            loader: "ts-loader",
+            exclude: /node_modules/,
+        }]
     },
     plugins: [
         new CleanWebpackPlugin(),

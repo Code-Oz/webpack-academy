@@ -2,7 +2,6 @@ const path = require("path")
 const commonConfig = require("./webpack.config.common")
 const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const CopyPlugin = require("copy-webpack-plugin")
 
 const config = {
     mode: "production",
@@ -32,11 +31,6 @@ const config = {
         new MiniCssExtractPlugin({
             // Name output by extract
             filename: "[name].css",
-        }),
-        new CopyPlugin({
-            patterns: [
-                { from: path.resolve(__dirname, "src/static"), to: "static" }
-            ],
         }),
     ],
 }
